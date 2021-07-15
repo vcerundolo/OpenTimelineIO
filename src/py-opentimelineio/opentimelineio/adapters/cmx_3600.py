@@ -670,6 +670,8 @@ def _expand_transitions(timeline):
                 otio_transition_type = "SMPTE_Wipe"
             elif transition_type in ['D']:
                 otio_transition_type = schema.TransitionTypes.SMPTE_Dissolve
+            elif transition_type in ['K'] or transition_type in ['KB'] or transition_type in ['KO']:
+                otio_transition_type = "Key"
             else:
                 raise EDLParseError(
                     "Transition type '{}' not supported by the CMX EDL reader "
